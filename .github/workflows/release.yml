@@ -1,0 +1,85 @@
+name: release
+
+# "v1.2.0" gibi bir etiket push edildiğinde:
+#  1) .deb paketini derler
+#  2) GitHub Release oluşturup .deb dosyasını ekler
+#  3) gh-pages dalındaki APT deposunu günceller ve imzalar
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Araçları kur
+        run: sudo apt-get update && sudo apt-get install -y apt-utils dpkg-dev
+
+      - name: Değişkenler
+        id: vars
+        run: |
+          OWNER="${GITHUB_REPOSITORY_OWNER,,}"
+          NAME="${GITHUB_REPOSITORY#*/}"
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then V="${GITHUB_REF_NAME#v}"; else V="$(cat VERSION)"; fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "repo_url=https://$OWNER.github.io/$NAME" >> "$GITHUB_OUTPUT"
+
+      - name: .deb derle
+        id: build
+        env:
+          DEB_MAINTAINER: ${{ github.repository_owner }} <${{ github.repository_owner }}@users.noreply.github.com>
+          DEB_HOMEPAGE: https://github.com/${{ github.repository }}
+        run: |
+          chmod +x scripts/*.sh
+          echo "deb=$(scripts/build-deb.sh ${{ steps.vars.outputs.version }})" >> "$GITHUB_OUTPUT"
+
+      - name: GPG anahtarını içe aktar
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: |
+          if [ -z "$GPG_PRIVATE_KEY" ]; then
+            echo "::error::GPG_PRIVATE_KEY secret'ı boş veya tanımlı değil (Settings → Secrets → Actions)"
+            exit 1
+          fi
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          gpg --list-secret-keys
+
+      - name: gh-pages dalını hazırla
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch origin gh-pages; then
+            git worktree add -B gh-pages site origin/gh-pages
+          else
+            git worktree add --detach site
+            cd site && git checkout --orphan gh-pages && git rm -rfq . && cd ..
+          fi
+
+      - name: APT deposunu güncelle
+        env:
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          REPO_URL: ${{ steps.vars.outputs.repo_url }}
+        run: scripts/update-repo.sh site "${{ steps.build.outputs.deb }}"
+
+      - name: gh-pages'e gönder
+        run: |
+          cd site
+          git add -A
+          git commit -m "rkmon ${{ steps.vars.outputs.version }}" || echo "değişiklik yok"
+          git push origin gh-pages
+
+      - name: GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "${{ steps.build.outputs.deb }}" \
+            --title "rkmon ${{ steps.vars.outputs.version }}" --generate-notes \
+          || gh release upload "$GITHUB_REF_NAME" "${{ steps.build.outputs.deb }}" --clobber
