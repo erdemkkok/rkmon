@@ -1,0 +1,21 @@
+Package: rkmon
+Architecture: all
+Version: 1.0.0
+Priority: optional
+Section: utils
+Maintainer: erdemkkok <erdemkkok@users.noreply.github.com>
+Installed-Size: 64
+Depends: python3 (>= 3.6)
+Filename: pool/main/rkmon_1.0.0_all.deb
+Size: 7032
+MD5sum: 24cb2a7c2bc57ec512ed21146dea3280
+SHA1: 0cf825b9678d2c9e0344d26767efb3a33bb33c05
+SHA256: e7f0340ef7ed8d4c72a9365df8217aded542f8445bf840d613391c67d0b4ddaa
+SHA512: 8b531ba8bfb999a65b5980114a2f4e474637cc2357f4ae07e88ded5c7604bf65630be7bdbf7bd9b205dbfce3102bee9ec517210d9169cba7c97cc3cfdd648f9f
+Homepage: https://github.com/erdemkkok/rkmon
+Description: Rockchip RK3588 (Orange Pi) terminal monitor
+ Terminal-based live monitor for Rockchip boards such as Orange Pi 5 / CM5.
+ Shows per-core CPU load and frequency, RKNPU core load, Mali GPU load,
+ memory usage and all thermal zones with colored bars and history
+ sparklines. Optional CSV logging. Pure Python 3, no extra dependencies.
+

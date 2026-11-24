@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Architectures: arm64 armhf amd64
+Codename: stable
+Components: main
+Date: Tue, 24 Nov 2026 06:06:08 +0000
+Description: rkmon APT repository
+Label: rkmon
+Origin: rkmon
+Suite: stable
+MD5Sum:
+ 5eedba0c583d63b1ebaead4e73b7ec76              926 main/binary-amd64/Packages
+ fcfddd116e30e05b9a7e82fad8863b1f              643 main/binary-amd64/Packages.gz
+ 5eedba0c583d63b1ebaead4e73b7ec76              926 main/binary-arm64/Packages
+ fcfddd116e30e05b9a7e82fad8863b1f              643 main/binary-arm64/Packages.gz
+ 5eedba0c583d63b1ebaead4e73b7ec76              926 main/binary-armhf/Packages
+ fcfddd116e30e05b9a7e82fad8863b1f              643 main/binary-armhf/Packages.gz
+SHA1:
+ d7e8bcb1cc82ff80085f3ad18a37f74c15ace41a              926 main/binary-amd64/Packages
+ dc87ef2b650973bcd4edfe01f5bbd81b44e1f672              643 main/binary-amd64/Packages.gz
+ d7e8bcb1cc82ff80085f3ad18a37f74c15ace41a              926 main/binary-arm64/Packages
+ dc87ef2b650973bcd4edfe01f5bbd81b44e1f672              643 main/binary-arm64/Packages.gz
+ d7e8bcb1cc82ff80085f3ad18a37f74c15ace41a              926 main/binary-armhf/Packages
+ dc87ef2b650973bcd4edfe01f5bbd81b44e1f672              643 main/binary-armhf/Packages.gz
+SHA256:
+ f125672e5fd5bfe1b95825db1784574f7f2b60e8d6ad70c37a801687d88a2dbf              926 main/binary-amd64/Packages
+ 85ddf8023efbca6d428c433d35be66b9f428b4e5875e05aa1ca11f71bf8065cf              643 main/binary-amd64/Packages.gz
+ f125672e5fd5bfe1b95825db1784574f7f2b60e8d6ad70c37a801687d88a2dbf              926 main/binary-arm64/Packages
+ 85ddf8023efbca6d428c433d35be66b9f428b4e5875e05aa1ca11f71bf8065cf              643 main/binary-arm64/Packages.gz
+ f125672e5fd5bfe1b95825db1784574f7f2b60e8d6ad70c37a801687d88a2dbf              926 main/binary-armhf/Packages
+ 85ddf8023efbca6d428c433d35be66b9f428b4e5875e05aa1ca11f71bf8065cf              643 main/binary-armhf/Packages.gz
+SHA512:
+ 3381f8bb1dac1a77a76523bb4148a6ae7c261b2184f23a89835194e86d72a2b0955f1476714c3fda5e0c3a67ae99c3861722c4b3dc0ca297c925ed782fcf0342              926 main/binary-amd64/Packages
+ b01c511b1ab23d4b1e16b60c422ae9ff171d56ecce40bdcc50f3cdf9aa2b689768ac4bca11c2f4aa064442e68043988269f2e5172ac1aaef41bec8e9df1e6d1f              643 main/binary-amd64/Packages.gz
+ 3381f8bb1dac1a77a76523bb4148a6ae7c261b2184f23a89835194e86d72a2b0955f1476714c3fda5e0c3a67ae99c3861722c4b3dc0ca297c925ed782fcf0342              926 main/binary-arm64/Packages
+ b01c511b1ab23d4b1e16b60c422ae9ff171d56ecce40bdcc50f3cdf9aa2b689768ac4bca11c2f4aa064442e68043988269f2e5172ac1aaef41bec8e9df1e6d1f              643 main/binary-arm64/Packages.gz
+ 3381f8bb1dac1a77a76523bb4148a6ae7c261b2184f23a89835194e86d72a2b0955f1476714c3fda5e0c3a67ae99c3861722c4b3dc0ca297c925ed782fcf0342              926 main/binary-armhf/Packages
+ b01c511b1ab23d4b1e16b60c422ae9ff171d56ecce40bdcc50f3cdf9aa2b689768ac4bca11c2f4aa064442e68043988269f2e5172ac1aaef41bec8e9df1e6d1f              643 main/binary-armhf/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRoz49tWO+BDQY6a7fVa2t7p3iR3QUCawUpUAAKCRDVa2t7p3iR
+3RPdAP9M1APiVs4YnPYaMO8dq2sbVWQEzcB9kv0cPYNR6iAHoQEAyxVPs7WD1Bt9
+wTNcK2wnaYjoDm7cyii0zirTLmtd4wY=
+=1Mxf
+-----END PGP SIGNATURE-----

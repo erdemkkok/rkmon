@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><title>rkmon APT repository</title>
+<body style="font-family:sans-serif;max-width:760px;margin:40px auto;line-height:1.5">
+<h1>rkmon APT repository</h1>
+<p>Hızlı kurulum:</p>
+<pre>curl -fsSL https://erdemkkok.github.io/rkmon/install.sh | sudo sh</pre>
+<p>Elle kurulum:</p>
+<pre>curl -fsSL https://erdemkkok.github.io/rkmon/rkmon.gpg | sudo tee /usr/share/keyrings/rkmon.gpg &gt;/dev/null
+echo "deb [signed-by=/usr/share/keyrings/rkmon.gpg] https://erdemkkok.github.io/rkmon stable main" | sudo tee /etc/apt/sources.list.d/rkmon.list
+sudo apt update &amp;&amp; sudo apt install rkmon</pre>
+</body>
