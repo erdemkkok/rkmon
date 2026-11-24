@@ -22,6 +22,8 @@ import socket
 import time
 from collections import deque
 
+__version__ = "dev"
+
 SPARK = " ▁▂▃▄▅▆▇█"
 HIST_LEN = 300
 LW = 20  # etiket sütunu genişliği
@@ -374,6 +376,7 @@ def run(stdscr, args):
 
 def main():
     ap = argparse.ArgumentParser(description="Orange Pi / RK3588 terminal monitörü")
+    ap.add_argument("-V", "--version", action="version", version=f"rkmon {__version__}")
     ap.add_argument("-i", "--interval", type=float, default=1.0, help="yenileme aralığı (sn)")
     ap.add_argument("--log", help="değerleri CSV dosyasına yaz")
     ap.add_argument("--temp-warn", type=float, default=60.0, help="sarı eşik (°C)")

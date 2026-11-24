@@ -1,0 +1,25 @@
+.TH RKMON 1 "" "rkmon" "User Commands"
+.SH NAME
+rkmon \- terminal monitor for Rockchip RK3588 boards
+.SH SYNOPSIS
+.B rkmon
+[\fB\-i\fR \fIsec\fR] [\fB\-\-log\fR \fIfile.csv\fR] [\fB\-\-temp\-warn\fR \fIC\fR] [\fB\-\-temp\-crit\fR \fIC\fR] [\fB\-V\fR]
+.SH DESCRIPTION
+Shows per-core CPU load and frequency, RKNPU load, GPU load, memory usage and
+thermal zones with colored bars and history sparklines.
+NPU load is read from debugfs and requires root.
+.SH KEYS
+.TP
+.B q
+quit
+.TP
+.B + / \-
+change refresh interval
+.TP
+.B c
+toggle per-core CPU rows
+.TP
+.B p
+pause
+.SH FILES
+/sys/kernel/debug/rknpu/load, /sys/class/thermal/thermal_zone*, /sys/class/devfreq/*, /proc/stat, /proc/meminfo
