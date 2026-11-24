@@ -2,6 +2,18 @@
 Orangepi source usage monitor
 
 ## INSTALL
-'''bash
-curl -fsSL https://KULLANICI.github.io/rkmon/install.sh | sudo sh
+## Installation
+
+Install `rkmon` with the following command:
+
+```bash
+curl -fsSL https://erdemkkok.github.io/rkmon/install.sh | sudo sh
+```
+
+## Usage
+
+Start `rkmon`:
+
+```bash
 sudo rkmon
+```
